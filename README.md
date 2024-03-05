@@ -1,2 +1,4 @@
 # BookStoreManagement-SpringMVC
- Book management system that performs basic CRUD operations.
+Spring MVC project containing basic book operations. Assistance was received from various sources for front-end operations.
+
+# Preview
