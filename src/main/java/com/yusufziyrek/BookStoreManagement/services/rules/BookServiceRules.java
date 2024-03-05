@@ -12,7 +12,7 @@ public class BookServiceRules {
 
 	private IBookRepository bookRepository;
 
-	public void checkIfBrandNameExists(String name) {
+	public void checkIfBookNameExists(String name) {
 		if (this.bookRepository.existsByName(name)) {
 			throw new RuntimeException("Book name already exists !!");
 

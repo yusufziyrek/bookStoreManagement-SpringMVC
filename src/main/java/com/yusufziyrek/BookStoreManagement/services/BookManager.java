@@ -48,7 +48,7 @@ public class BookManager implements IBookService {
 	public void add(BookAddDto bookAddDto) {
 
 		this.bookServiceRules.checkIfFieldsNull(bookAddDto.getName(), bookAddDto.getAuthor(), bookAddDto.getPrice());
-		this.bookServiceRules.checkIfBrandNameExists(bookAddDto.getName());
+		this.bookServiceRules.checkIfBookNameExists(bookAddDto.getName());
 
 		Book book = new Book();
 		book.setName(bookAddDto.getName());
@@ -62,9 +62,9 @@ public class BookManager implements IBookService {
 	@Override
 	public void update(BookUpdateDto bookUpdateDto) {
 
-		this.bookServiceRules.checkIfBrandNameExists(bookUpdateDto.getName());
 		this.bookServiceRules.checkIfFieldsNull(bookUpdateDto.getName(), bookUpdateDto.getAuthor(),
 				bookUpdateDto.getPrice());
+		this.bookServiceRules.checkIfBookNameExists(bookUpdateDto.getName());
 
 		Book book = this.bookRepository.findById(bookUpdateDto.getId()).orElseThrow();
 		book.setName(bookUpdateDto.getName());
