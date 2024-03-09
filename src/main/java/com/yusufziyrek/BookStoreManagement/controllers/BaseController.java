@@ -2,11 +2,19 @@ package com.yusufziyrek.BookStoreManagement.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.yusufziyrek.BookStoreManagement.dto.requests.CreatContactDto;
+import com.yusufziyrek.BookStoreManagement.services.abstracts.IContactService;
+
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor
 public class BaseController {
+
+	private IContactService contactService;
 
 	@GetMapping({ "/", "", "/home" })
 	public String getHome() {
@@ -27,11 +35,9 @@ public class BaseController {
 	}
 
 	@PostMapping("/contact")
-	public String getContact(@RequestParam String name, @RequestParam String email, @RequestParam String message) {
+	public void getContact(@ModelAttribute CreatContactDto creatContactDto) {
+		this.contactService.add(creatContactDto);
+		System.out.println("New message !!");
 
-		System.out.println(name);
-		System.out.println(email);
-		System.out.println(message);
-		return "redirect:/contact";
 	}
 }

@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yusufziyrek.BookStoreManagement.dto.BookAddDto;
-import com.yusufziyrek.BookStoreManagement.dto.BookListDto;
-import com.yusufziyrek.BookStoreManagement.dto.BookUpdateDto;
+import com.yusufziyrek.BookStoreManagement.dto.requests.BookAddDto;
+import com.yusufziyrek.BookStoreManagement.dto.requests.BookUpdateDto;
+import com.yusufziyrek.BookStoreManagement.dto.responses.BookListDto;
 import com.yusufziyrek.BookStoreManagement.entities.Book;
-import com.yusufziyrek.BookStoreManagement.services.IBookService;
+import com.yusufziyrek.BookStoreManagement.services.abstracts.IBookService;
 
 import lombok.AllArgsConstructor;
 
